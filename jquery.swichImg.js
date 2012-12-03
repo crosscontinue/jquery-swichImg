@@ -6,8 +6,22 @@
 			minSize: 170,
 			maxSize: 380,
 			duration: 500,
-			txtClass: 'pn'
+			txtClass: 'pn',
+			opacity: 0.5
 		}, options);
+
+		$(options.listBox).find('a').live({
+			mouseover: function(){
+				$(this).stop().animate({
+					opacity: options.opacity
+				});
+			},
+			mouseout: function(){
+				$(this).stop().animate({
+					opacity: 1
+				});
+			}
+		});
 
 		$(options.listBox).find('a').live('click',function(){
 			if($(this).hasClass('current')){
